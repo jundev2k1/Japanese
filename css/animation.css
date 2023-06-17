@@ -1,0 +1,43 @@
+@import url("./base.css");
+
+@keyframes Growth {
+    from {
+        opacity: 0;
+        transform: scale(var(--growth-from));
+    }
+    to {
+        opacity: 1;
+        transform: scale(var(--growth-to));
+    }
+}
+
+@keyframes FadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes FadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes Loading {
+    0%{
+        opacity: .75;
+    }
+    50%{
+        opacity: .25;
+    }
+    100%{
+        opacity: .75;
+    }
+}
+

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My Japanese</title>
+        <link rel="icon" type="image/x-icon" href="../content/favicon.png">
+        <link href="../library/bootstrap/css/bootstrap.css" rel="stylesheet" />
+        <link rel="stylesheet" href="../library/fontAwesome/fontawesome.pro.6.0.0.css">
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+
+    <body>
+        <section class="menu-sidebar" id="page-sidebar">
+            <div class="wrapper">
+                <div class="logo">
+                    <i class="fa-regular fa-language"></i>
+                    <h1>My Japanese</h1>
+                </div>
+                <div class="menu-field">
+                    <ul class="menu-group">
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="page-content">
+            <div class="header-bar">
+                <i class="fa-duotone fa-keyboard"></i>
+                LETTER PRACTICE
+            </div>
+            <div class="box">
+                <button
+                    type="button"
+                    id="settingButton"
+                    data-bs-toggle="tooltip"
+                    data-bs-title="Setting"
+                >
+                    <i class="fa-solid fa-gear"></i>
+                </button>
+                <div class="main-page" style="display: none">
+                    <div class="score">0</div>
+                    <div class="japanese-code">
+                        <div class="alert alert-primary" role="alert">
+                            <h1></h1>
+                            <button>Hint</button>
+                            <label></label>
+                        </div>
+                    </div>
+                    <span class="warn">---- Phien am Romaji ----</span>
+                    <input type="text" class="form-control" id="input-field" />
+                </div>
+                <div class="setting-page" style="display: block">
+                    <div class="title">
+                        <h2>Setting</h2>
+                    </div>
+                    <div class="setting-type">
+                        <h3 class="sub-title">-- Setting Type --</h3>
+                        <div class="button-group">
+                            <button class="btn btn-info active" data-type="0">
+                                Hiragana
+                            </button>
+                            <button class="btn btn-info" data-type="1">
+                                Katakana
+                            </button>
+                        </div>
+                    </div>
+                    <div class="setting-level">
+                        <h3 class="sub-title">-- Setting Level --</h3>
+                        <div class="button-group">
+                            <button class="btn btn-info active" data-level="1">
+                                1
+                            </button>
+                            <button class="btn btn-info" data-level="2">
+                                2
+                            </button>
+                            <button class="btn btn-info" data-level="3">
+                                3
+                            </button>
+                            <button class="btn btn-info" data-level="4">
+                                4
+                            </button>
+                            <button class="btn btn-info" data-level="5">
+                                5
+                            </button>
+                        </div>
+                    </div>
+                    <div class="setting-mode">
+                        <h3 class="sub-title">-- Setting Mode --</h3>
+                        <div class="button-group">
+                            <button class="btn btn-info active" data-mode="0">
+                                Simple
+                            </button>
+                            <button class="btn btn-info" data-mode="1">
+                                Normal
+                            </button>
+                            <button class="btn btn-info" data-mode="2">
+                                Full
+                            </button>
+                        </div>
+                    </div>
+                    <div class="setting-save">
+                        <div class="message">
+                        </div>
+                        <button class="btn btn-primary w-100">Save</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="language-board">
+            <div class="wrapper">
+                <div class="title">
+                    <button class="btn btn-primary active" data-type="0">
+                        Hiragana
+                    </button>
+                    <button class="btn btn-primary" data-type="1">Katakana</button>
+                </div>
+                <div class="content">
+                    <ul class="code-list"></ul>
+                </div>
+            </div>
+        </section>
+        <section id="script">
+            <script src="../library/bootstrap/js/bootstrap.bundle.js"></script>
+            <script src="../library/bootstrap/js/popper.js"></script>
+            <script src="../js/system/useLibrary.js"></script>
+            <script type="module" src="../js/index.js"></script>
+        </section>
+    </body>
+</html>
