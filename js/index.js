@@ -29,20 +29,30 @@ const changeTitlePage = function (title = "") {
     }
 };
 
-
 //======== Page Load ========
 function PageLoad() {
-    let page = window.location.pathname;
+    const page = window.location.pathname;
     const menuList = Template.MainMenu(page);
 
-    $("#page-sidebar .logo h1").innerHTML = constants.PROJECT_NAME_DISPLAY;
-
+    // Set page info
+    changeTitlePage();
     $(".menu-sidebar .menu-field .menu-group").innerHTML = menuList;
-    if (page === constants.PAGE_ROOT)
+    $("#page-sidebar .logo h1").innerHTML = constants.PROJECT_NAME_DISPLAY;
+    if (page === constants.PAGE_ROOT) {
         $(".menu-sidebar .menu-field .menu-group .menu-item").classList.add(
             "active"
         );
+    }
+    // Set title page content
+    PageList.forEach((item) => {
+        if (item.path === page) {
+            $(
+                ".page-content .header-bar"
+            ).innerHTML = `<i class="${item.icon}"></i> ${item.name}`;
+        }
+    });
 
+    // Handle page
     switch (page) {
         case constants.PAGE_ROOT:
         case constants.PAGE_DASHBOARD:
@@ -74,7 +84,6 @@ function PageLoad() {
             errorProgress();
             break;
     }
-    changeTitlePage();
 }
 PageLoad();
 
@@ -87,9 +96,11 @@ PageLoad();
     // Handle hover
     pageSidebar.addEventListener("mouseover", (e) => {
         pageContent.style.paddingLeft = "18%";
+        pageContent.style.animation = "MenuHover 0.5s ease-in";
     });
-    pageContent.addEventListener("mouseover", () => {
+    pageSidebar.addEventListener("mouseleave", () => {
         pageContent.style.paddingLeft = "75px";
+        pageContent.style.animation = "MenuLeave 0.5s ease-in";
     });
 })();
 

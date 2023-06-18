@@ -14,7 +14,7 @@ export function grammarPracticeProgress() {
         const typeLoad = {
             new: 0,
             reset: 1,
-            update: 2
+            update: 2,
         };
         const review = $("#grammar #review p");
         const errorMassage = $("#grammar #review .error-message");
@@ -24,7 +24,7 @@ export function grammarPracticeProgress() {
 
         return {
             load(type) {
-                debugger
+                debugger;
                 switch (type) {
                     case typeLoad.new:
                         oldContent = [];
@@ -56,7 +56,7 @@ export function grammarPracticeProgress() {
             },
             createData(type) {
                 let template = '<li id="start"></li>';
-                switch(type){
+                switch (type) {
                     case typeLoad.new:
                     case typeLoad.reset:
                         oldContent.forEach((item, index) => {
@@ -76,7 +76,7 @@ export function grammarPracticeProgress() {
             reviewData() {
                 review.innerHTML = oldContent.join(" ");
             },
-            loadScore(){
+            loadScore() {
                 scoreElem.innerHTML = score;
             },
             resetScore() {
@@ -88,7 +88,7 @@ export function grammarPracticeProgress() {
             },
             validate() {
                 if (originalContent === newContent.join(" ")) {
-                    debugger
+                    debugger;
                     alert("dung roi");
                     score++;
                     this.load(typeLoad.new);
@@ -101,12 +101,12 @@ export function grammarPracticeProgress() {
                 newContent.splice(position, 1);
             },
             handleEvent() {
-                const checkClone = function(){
+                const checkClone = function () {
                     let cloneElem = document.querySelector(
                         "#grammar #cloneItem"
                     );
                     draging = cloneElem == null ? false : true;
-                }
+                };
 
                 $$("#grammar ul li").forEach((item) => {
                     // Dragstart event
@@ -122,6 +122,7 @@ export function grammarPracticeProgress() {
                         if (draging === false && dragItem.id != item.id) {
                             if (item.id == "start" || item.id == "end") {
                                 item.classList.add("dragtemp");
+                                item.id = "cloneItem";
                             } else {
                                 item.insertAdjacentHTML("afterend", cloneItem);
                             }
@@ -130,11 +131,15 @@ export function grammarPracticeProgress() {
                     // Dragover event for outside
                     $$("#grammar .space").forEach((item) => {
                         item.addEventListener("dragover", () => {
-                            let cloneElem = document.querySelector(
+                            let cloneElems = document.querySelectorAll(
                                 "#grammar #cloneItem"
                             );
-                            if (cloneElem !== null) {
-                                cloneElem.remove();
+                            if (cloneElems !== null) {
+                                cloneElems.forEach((cloneElem)=>{
+                                    if(cloneElem.id !== 'start' || cloneElem !== 'end')
+                                        cloneElem.remove();
+
+                                })
                             }
                         });
                     });
@@ -146,7 +151,6 @@ export function grammarPracticeProgress() {
                     });
                     // Drop event
                     item.addEventListener("dragend", () => {
-                        debugger
                         let cloneElem = document.querySelector(
                             "#grammar #cloneItem"
                         );
@@ -154,12 +158,25 @@ export function grammarPracticeProgress() {
                             const items = $$("#grammar ul li");
                             items.forEach((item, index) => {
                                 if (item.id == "cloneItem") {
-                                    newContent.splice(
-                                        index,
-                                        0,
-                                        dragItem.innerHTML
-                                    );
-                                    newContent.splice(dragItem.id, 1);
+                                    if(index == 0){
+                                        newContent.splice(
+                                            Number(index),
+                                            0,
+                                            dragItem.innerHTML
+                                        );
+                                    } else {
+                                        debugger
+                                        newContent.splice(
+                                            index - 1,
+                                            0,
+                                            dragItem.innerHTML
+                                        );
+                                    }
+
+                                    if (dragItem.id >= index)
+                                        newContent.splice(Number(dragItem.id) + 1, 1);
+                                    else 
+                                        newContent.splice(Number(dragItem.id), 1);
                                 }
                             });
                             this.load(typeLoad.update);
@@ -179,9 +196,15 @@ export function grammarPracticeProgress() {
                 this.validate();
             },
             init() {
-                $("#grammar .confirm").addEventListener('click', ()=> this.submit());
-                $("#grammar .reset").addEventListener('click', ()=> this.reset());
-                $("#grammar .change").addEventListener('click', ()=> this.change());
+                $("#grammar .confirm").addEventListener("click", () =>
+                    this.submit()
+                );
+                $("#grammar .reset").addEventListener("click", () =>
+                    this.reset()
+                );
+                $("#grammar .change").addEventListener("click", () =>
+                    this.change()
+                );
                 this.resetScore();
                 this.load(typeLoad.new);
                 this.resetMessage();

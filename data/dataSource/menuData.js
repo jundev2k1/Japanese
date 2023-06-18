@@ -8,7 +8,7 @@ export const PageList = [
     {
         name: "Letter Practice",
         path: "/page/letterPractice.html",
-        icon: "fa-duotone fa-keyboard",
+        icon: "fa-duotone fa-pen-line",
     },
     {
         name: "Vocabulary Practice",
@@ -19,6 +19,11 @@ export const PageList = [
         name: "Grammar Practice",
         path: "/page/grammarPractice.html",
         icon: "fa-duotone fa-spell-check",
+    },
+    {
+        name: "Typing Practice",
+        path: "/page/typingPractice.html",
+        icon: "fa-duotone fa-keyboard",
     },
     {
         name: "Lesson",
