@@ -95,12 +95,13 @@ export function letterPracticeProgress() {
                     if (e.keyCode == 13) {
                         let romaTxt = romajiCode.join("");
                         if (e.target.value == romaTxt) {
+                            toastr("success", "Nice...");
                             score++;
                             this.clear();
                             this.clearHint();
                             this.add();
                             this.render();
-                        } else alert("sai rồi !!!");
+                        } else toastr("error", "Wrong answer")
                     }
                 });
                 $(".box .japanese-code button").addEventListener(

@@ -24,7 +24,6 @@ export function grammarPracticeProgress() {
 
         return {
             load(type) {
-                debugger;
                 switch (type) {
                     case typeLoad.new:
                         oldContent = [];
@@ -88,8 +87,7 @@ export function grammarPracticeProgress() {
             },
             validate() {
                 if (originalContent === newContent.join(" ")) {
-                    debugger;
-                    alert("dung roi");
+                    alert("Good job!");
                     score++;
                     this.load(typeLoad.new);
                 }
@@ -154,8 +152,8 @@ export function grammarPracticeProgress() {
                         let cloneElem = document.querySelector(
                             "#grammar #cloneItem"
                         );
+                        const items = $$("#grammar ul li");
                         if (cloneElem !== null) {
-                            const items = $$("#grammar ul li");
                             items.forEach((item, index) => {
                                 if (item.id == "cloneItem") {
                                     if(index == 0){
@@ -165,7 +163,6 @@ export function grammarPracticeProgress() {
                                             dragItem.innerHTML
                                         );
                                     } else {
-                                        debugger
                                         newContent.splice(
                                             index - 1,
                                             0,
@@ -180,6 +177,12 @@ export function grammarPracticeProgress() {
                                 }
                             });
                             this.load(typeLoad.update);
+                        } else {
+                            items.forEach((item)=>{
+                                if(item.id === dragItem.id){
+                                    item.classList.remove("draging");
+                                }
+                            })
                         }
                     });
                 });
