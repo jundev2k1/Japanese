@@ -12,7 +12,7 @@ function useTooltipBS() {
         (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
     );
 }
-function clearTooltipBS(element) {
+function clearTooltipBS() {
     const tooltipShowing = document.querySelectorAll(
         ".tooltip.bs-tooltip-auto"
     );
@@ -25,8 +25,8 @@ function clearTooltipBS(element) {
 function updateTooltip(element, content) {
     clearTooltipBS();
 
-    const tooltip = bootstrap.Tooltip.getInstance(element);
-    tooltip.setContent({ ".tooltip-inner": content });
+    const tooltip = bootstrap.Tooltip.getOrCreateInstance("#settingButton");
+    tooltip.setContent({'.tooltip-inner': content});
     tooltip.hide();
 }
 

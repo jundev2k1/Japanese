@@ -584,7 +584,7 @@ Grammar Practice Page
 .page-content .wrapper #grammar ul li.dragtemp {
     position: relative;
     border: 2px dotted #000;
-    color: #ecffde;
+    color: transparent;
     animation: Loading infinite 2s ease-in-out;
 }
 .page-content .wrapper #grammar ul > li.dragtemp::before{
