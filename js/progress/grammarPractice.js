@@ -87,9 +87,12 @@ export function grammarPracticeProgress() {
             },
             validate() {
                 if (originalContent === newContent.join(" ")) {
-                    alert("Good job!");
+                    toastr("success", "Good Jobs...")
                     score++;
                     this.load(typeLoad.new);
+                }
+                else{
+                    toastr("error", "Wrong!")
                 }
             },
             add(position) {
