@@ -1,6 +1,6 @@
-@import url('./base.css');
-@import url('./animation.css');
-@import url('../library/myLibrary/myToastr.css');
+@import url("./base.css");
+@import url("./animation.css");
+@import url("../library/myLibrary/myToastr.css");
 
 /*
 #####################
@@ -44,128 +44,130 @@ a {
 /* #endregion */
 
 /* #region MD Document */
-    #md-document .lesson-list {
-        animation: FadeIn ease-in 1s;
-    }
-    #md-document .lesson-detail {
-        animation: FadeIn ease-in 1s;
-    }
-    #md-document .md-content {
-        padding: 2.5% 5%;
-        margin: 12px 0;
-        background: #fff;
-        box-shadow: 2px 2px 5px #00000022;
-    }
-    #md-document .md-task-bar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1% 5%;
-        background: #fff;
-        box-shadow: 2px 2px 5px #00000022;
-    }
-    #md-document .md-task-bar nav .breadcrumb {
-        margin-bottom: 0;
-    }
-    /* Style for tag */
-    #md-document .md-content h1 {
-        font-weight: bold;
-        font-size: 32px;
-    }
-    #md-document .md-content h2 {
-        font-size: 24px;
-    }
-    #md-document .md-content h3 {
-        font-size: 18px;
-    }
-    #md-document .md-content h4 {
-        display: block;
-        padding: 8px 12px;
-        margin-bottom: 0;
-        background-color: #0096b4;
-        color: #fff;
-        font-size: 18px;
-    }
-    #md-document .md-content blockquote {
-        position: relative;
-        padding: 12px;
-        margin-bottom: 0;
-        background: #ebebeb;
-        color: #474747;
-    }
-    #md-document .md-content blockquote::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 5px;
-        height: 100%;
-        background: rgb(80, 80, 82);
-    }
-    #md-document .md-content blockquote p {
-        margin-bottom: 0;
-    }
-    #md-document .md-content blockquote em {
-        font-size: 12px;
-        color:rgb(33, 33, 33);
-    }
-    #md-document .md-content pre {
-        padding: 6px 12px;
-        color: #fff;
-        background: #4d4d4d;
-        border-radius: 4px;
-        border: 1px solid #989898;
-    }
-    #md-document .md-content pre code {
-        font-family: 'Courier New', Courier, monospace;
-    }
-    #md-document .md-content img {
-        display: block;
-        text-align: center;
-        margin: auto;
-        max-height: 500px;
-        max-width: 75%;
-    }
-    #md-document .md-content ul, ol {
-        margin-left: 2rem;
-    }
-    #md-document .md-content ul > li {
-        list-style-type: disc;
-    }
-    #md-document .md-content ul li ul > li {
-        list-style: circle;
-    }
-    #md-document .md-content ul li ul li ul > li {
-        list-style: square;
-    }
-    #md-document .md-content ol > li {
-        list-style-type: auto;
-    }
-    #md-document .md-content ol li > ol li {
-        list-style-type: lower-alpha;
-    }
-    #md-document .md-content table{
-        margin-bottom: 1rem;
-    }
-    #md-document .md-content table th,tr td{
-        padding: 4px 12px;
-        vertical-align: middle;
-    }
-    #md-document .md-content table thead {
-        background: #000;
-        border-bottom: 3px solid #a3a3a3;
-        color: #fff;
-    }
-    #md-document .md-content table tbody tr:nth-child(odd){
-        background: #868686;
-    }
-    #md-document .md-content table tbody tr:nth-child(even){
-        background: #a2a2a2;
-    }
-    #md-document .md-content table tr td p,
-    #md-document .md-content table tr td pre {
-        margin: 0;
-    }
+#md-document .lesson-list {
+    animation: FadeIn ease-in 1s;
+}
+#md-document .lesson-detail {
+    animation: FadeIn ease-in 1s;
+}
+#md-document .md-content {
+    padding: 2.5% 5%;
+    margin: 12px 0;
+    background: #fff;
+    box-shadow: 2px 2px 5px #00000022;
+}
+#md-document .md-task-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 5%;
+    background: #fff;
+    box-shadow: 2px 2px 5px #00000022;
+}
+#md-document .md-task-bar nav .breadcrumb {
+    margin-bottom: 0;
+}
+/* Style for tag */
+#md-document .md-content h1 {
+    font-weight: bold;
+    font-size: 32px;
+}
+#md-document .md-content h2 {
+    font-size: 24px;
+}
+#md-document .md-content h3 {
+    font-size: 18px;
+}
+#md-document .md-content h4 {
+    display: block;
+    padding: 8px 12px;
+    margin-bottom: 0;
+    background-color: #0096b4;
+    color: #fff;
+    font-size: 18px;
+}
+#md-document .md-content blockquote {
+    position: relative;
+    padding: 12px;
+    margin-bottom: 0;
+    background: #ebebeb;
+    color: #474747;
+}
+#md-document .md-content blockquote::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: rgb(80, 80, 82);
+}
+#md-document .md-content blockquote p {
+    margin-bottom: 0;
+}
+#md-document .md-content blockquote em {
+    font-size: 12px;
+    color: rgb(33, 33, 33);
+}
+#md-document .md-content pre {
+    padding: 6px 12px;
+    color: #fff;
+    background: #4d4d4d;
+    border-radius: 4px;
+    border: 1px solid #989898;
+}
+#md-document .md-content pre code {
+    font-family: "Courier New", Courier, monospace;
+}
+#md-document .md-content img {
+    display: block;
+    text-align: center;
+    margin: auto;
+    max-height: 500px;
+    max-width: 75%;
+}
+#md-document .md-content ul,
+ol {
+    margin-left: 2rem;
+}
+#md-document .md-content ul > li {
+    list-style-type: disc;
+}
+#md-document .md-content ul li ul > li {
+    list-style: circle;
+}
+#md-document .md-content ul li ul li ul > li {
+    list-style: square;
+}
+#md-document .md-content ol > li {
+    list-style-type: auto;
+}
+#md-document .md-content ol li > ol li {
+    list-style-type: lower-alpha;
+}
+#md-document .md-content table {
+    margin-bottom: 1rem;
+}
+#md-document .md-content table th,
+tr td {
+    padding: 4px 12px;
+    vertical-align: middle;
+}
+#md-document .md-content table thead {
+    background: #000;
+    border-bottom: 3px solid #a3a3a3;
+    color: #fff;
+}
+#md-document .md-content table tbody tr:nth-child(odd) {
+    background: #868686;
+}
+#md-document .md-content table tbody tr:nth-child(even) {
+    background: #a2a2a2;
+}
+#md-document .md-content table tr td p,
+#md-document .md-content table tr td pre {
+    margin: 0;
+}
 /* #endregion */
 
 /*
@@ -314,7 +316,7 @@ a {
     color: #575757;
     border: 1px solid #acacac;
     border-radius: 4px;
-    transition: .5s;
+    transition: 0.5s;
 }
 .box .japanese-code button:hover {
     background: #fbfbfb;
@@ -336,10 +338,10 @@ a {
 
 /* #region Setting Page */
 .box .main-page {
-    animation: FadeIn ease-in .5s;
+    animation: FadeIn ease-in 0.5s;
 }
 .box .setting-page {
-    animation: FadeIn ease-in .5s;
+    animation: FadeIn ease-in 0.5s;
 }
 .setting-page .title {
     margin: 12px 0;
@@ -530,11 +532,11 @@ Grammar Practice Page
     font-weight: bold;
     background: #dbdbdb;
 }
-.page-content .wrapper #grammar .alert{
+.page-content .wrapper #grammar .alert {
     text-align: center;
     margin: 48px 0;
 }
-.page-content .wrapper #grammar .alert > h4{
+.page-content .wrapper #grammar .alert > h4 {
     font-weight: bold;
 }
 .page-content .wrapper #grammar .alert > p {
@@ -547,17 +549,17 @@ Grammar Practice Page
     font-style: italic;
     font-weight: lighter;
 }
-.page-content .wrapper #grammar .space{
+.page-content .wrapper #grammar .space {
     height: 32px;
 }
-.page-content .wrapper #grammar ul{
+.page-content .wrapper #grammar ul {
     display: flex;
     justify-content: center;
     gap: 8px;
     width: 100%;
     margin-bottom: 32px;
 }
-.page-content .wrapper #grammar ul li{
+.page-content .wrapper #grammar ul li {
     position: relative;
     background: #ecffde;
     box-shadow: 1px 1px 4px #515151;
@@ -569,9 +571,9 @@ Grammar Practice Page
     cursor: pointer;
     font-size: 16px;
     font-weight: 500;
-    animation: FadeIn .25s ease-in;
+    animation: FadeIn 0.25s ease-in;
 }
-.page-content .wrapper #grammar ul li::after{
+.page-content .wrapper #grammar ul li::after {
     content: "";
     position: absolute;
     top: -5px;
@@ -588,7 +590,7 @@ Grammar Practice Page
     color: transparent;
     animation: Loading infinite 2s ease-in-out;
 }
-.page-content .wrapper #grammar ul > li.dragtemp::before{
+.page-content .wrapper #grammar ul > li.dragtemp::before {
     content: "+";
     color: #000;
     position: absolute;
@@ -598,8 +600,8 @@ Grammar Practice Page
     left: 0;
     transform: translateY(-50%);
 }
-.page-content .wrapper #grammar ul li.draging{
-    opacity: .25;
+.page-content .wrapper #grammar ul li.draging {
+    opacity: 0.25;
 }
 .page-content .wrapper #grammar .button-group {
     text-align: center;
@@ -624,14 +626,14 @@ Grammar Practice Page
     height: 100%;
     transform: translateY(-4px);
     padding: 4px;
-    transition: .25s ease-in;
+    transition: 0.25s ease-in;
 }
 .page-content .wrapper #grammar .button-group > button span:hover {
-    transition: .25s ease-in;
+    transition: 0.25s ease-in;
     transform: translateY(-3px);
 }
 .page-content .wrapper #grammar .button-group > button span:active {
-    transition: .10s ease-in;
+    transition: 0.1s ease-in;
     transform: translateY(0);
 }
 /* #endregion */
@@ -656,98 +658,101 @@ Grammar Practice Page
 ###################
 */
 /* #region Aboutme Page*/
-    .page-content .about-me-box {
-        position: absolute;
-        top: 100px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 768px;
-        min-height: 480px;
-        background: #fff;
-        border-radius: 4px;
-        overflow: hidden;
-        margin-bottom: 100px;
-    }
-    .page-content .about-me-avatar {
-        position: relative;
-        width: 100%;
-        height: 300px;
-        overflow: hidden;
-    }
-    .page-content .about-me-avatar img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: 50% 32%;
-    }
-    .page-content .about-me-avatar .title {
-        position: absolute;
-        right: 5%;
-        bottom: 5%;
-        text-align: right;
-        text-shadow: #000 2px 2px 2px;
-        color: #ebebeb;
-    }
-    .page-content .about-me-avatar .title h1 {
-        font-family: sans-serif;
-        font-weight: bold;
-        font-size: 32px;
-        margin-bottom: 0;
-    }
-    .page-content .about-me-avatar .title span {
-        font-family: sans-serif;
-        font-weight: bold;
-        font-size: 18px;
-    }
-    .page-content .about-me-content .link-button {
-        text-align: center;
-        margin: 24px 0;
-    }
-    .page-content .about-me-content .link-button a {
-        padding: 10px 20px;
-        background: #541e1e;
-        border-radius: 4px;
-        color: #fff;
-        font-family: sans-serif;
-        font-weight: bold;
-        border: #634141 solid 2px;
-        transition: .5s;
-    }
-    .page-content .about-me-content .link-button a:hover {
-        background: #341313;
-    }
-    .page-content .about-me-content .contact-me {
-        margin: 24px 0;
-        text-align: center;
-    }
-    .page-content .about-me-content .contact-me h2 {
-        font-size: 16px;
-        font-weight: bold;
-        margin-bottom: .75rem;
-    }
-    .page-content .about-me-content .contact-me ul {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: center;
-    }
-    .page-content .about-me-content .contact-me ul li{
-        padding: 0 8px;
-    }
-    .page-content .about-me-content .contact-me ul li a {
-        font-size: 18px;
-        color: #fff;
-        padding: 8px;
-        border-radius: 100%;
-        background: var(--bs-secondary);
-    }
-    .page-content .about-me-content .contact-me ul li a i {
-        width: 20px;
-        line-height: 20px;
-        text-align: center;
-    }
-    .page-content .about-me-content .md-content {
-        padding: 2% 7.5%;
-    }
+.page-content .about-me-box {
+    position: absolute;
+    top: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 768px;
+    min-height: 480px;
+    padding: 24px;
+}
+.page-content .about-me-box .wrapper {
+    background: #fff;
+    border-radius: 4px;
+    padding-bottom: 12px;
+    overflow: hidden;
+}
+.page-content .about-me-avatar {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+.page-content .about-me-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 32%;
+}
+.page-content .about-me-avatar .title {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    text-align: right;
+    text-shadow: #000 2px 2px 2px;
+    color: #ebebeb;
+}
+.page-content .about-me-avatar .title h1 {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+    margin-bottom: 0;
+}
+.page-content .about-me-avatar .title span {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+.page-content .about-me-content .link-button {
+    text-align: center;
+    margin: 24px 0;
+}
+.page-content .about-me-content .link-button a {
+    padding: 10px 20px;
+    background: #541e1e;
+    border-radius: 4px;
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: bold;
+    border: #634141 solid 2px;
+    transition: 0.5s;
+}
+.page-content .about-me-content .link-button a:hover {
+    background: #341313;
+}
+.page-content .about-me-content .contact-me {
+    margin: 24px 0;
+    text-align: center;
+}
+.page-content .about-me-content .contact-me h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+}
+.page-content .about-me-content .contact-me ul {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+.page-content .about-me-content .contact-me ul li {
+    padding: 0 8px;
+}
+.page-content .about-me-content .contact-me ul li a {
+    font-size: 18px;
+    color: #fff;
+    padding: 8px;
+    border-radius: 100%;
+    background: var(--bs-secondary);
+}
+.page-content .about-me-content .contact-me ul li a i {
+    width: 20px;
+    line-height: 20px;
+    text-align: center;
+}
+.page-content .about-me-content .md-content {
+    padding: 2% 7.5%;
+}
 /* #endregion */
 
 /*
@@ -758,15 +763,15 @@ Grammar Practice Page
 @media (max-height: 600px) {
     /* #endregion */
     /* #region Letter Practice */
-        .box {
-            top: 100px;
-            transform: translate(-50%);
-        }
+    .box {
+        top: 100px;
+        transform: translate(-50%);
+    }
     /* #endregion */
     /* #region Error */
     .page-content .error-box {
         width: 25%;
-        transition: .5s;
+        transition: 0.5s;
     }
     /* #endregion */
 }
