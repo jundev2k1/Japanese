@@ -3,10 +3,22 @@
     z-index: 1000;
     top: 2%;
     right: 2%;
+    left: auto;
     background: #fff;
     min-width: 200px;
+    max-width: 300px;
     border-radius: 4px;
     animation: FadeIn .5s ease-in-out;
+    box-shadow: 1px 1px 2px #434343;
+}
+.toastr.success{
+    background-color: var(--bs-success);
+}
+.toastr.warning{
+    background-color: var(--bs-warning);
+}
+.toastr.error{
+    background-color: var(--bs-danger);
 }
 .toastr .message{
     display: flex;
@@ -14,6 +26,7 @@
     align-items: center;
     gap: 10px;
     padding: 4px 12px;
+    color: #fff;
 }
 .toastr .message .message-icon {
     font-size: 24px;
@@ -21,4 +34,5 @@
 }
 .toastr .message .message-content {
     font-size: 16px;
+    line-height: 16px;
 }

@@ -19,6 +19,7 @@ export function letterPracticeProgress() {
         let currentLevel = level;
         let currentMode = mode;
         let score = 0;
+        let isHint = false;
 
         return {
             random() {
@@ -74,8 +75,10 @@ export function letterPracticeProgress() {
             hint() {
                 let txtHint = "Gợi ý: " + romajiCode.join("");
                 $(".box .japanese-code label").innerHTML = txtHint;
+                isHint = true;
             },
             clearHint() {
+                isHint = false;
                 $(".box .japanese-code label").innerHTML = "";
             },
             render() {
@@ -96,7 +99,10 @@ export function letterPracticeProgress() {
                         let romaTxt = romajiCode.join("");
                         if (e.target.value == romaTxt) {
                             toastr("success", "Nice...");
-                            score++;
+                            // Check hint
+                            if(isHint == false)
+                                score++;
+                            
                             this.clear();
                             this.clearHint();
                             this.add();

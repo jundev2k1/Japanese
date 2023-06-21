@@ -20,7 +20,7 @@ export function grammarPracticeProgress() {
         const errorMassage = $("#grammar #review .error-message");
         const listItem = $("#grammar ul");
         const scoreElem = $("#grammar .score");
-        const cloneItem = '<li id="cloneItem" class="dragtemp">Clone</li>';
+        const cloneItem = '<li class="dragtemp cloneItem">Clone</li>';
 
         return {
             load(type) {
@@ -47,17 +47,20 @@ export function grammarPracticeProgress() {
                 // Set for current data
                 originalContent = content[num].element.join(" ");
                 oldContent = [...content[num].element];
-                newContent = oldContent;
                 this.randomContent();
             },
             randomContent() {
                 oldContent.sort((a, b) => 0.5 - Math.random());
+                if (oldContent.join(" ") === originalContent) {
+                    this.randomContent();
+                }
             },
             createData(type) {
-                let template = '<li id="start"></li>';
+                let template = "";
                 switch (type) {
                     case typeLoad.new:
                     case typeLoad.reset:
+                        newContent = [...oldContent]
                         oldContent.forEach((item, index) => {
                             template += `<li id="${index}" class="" draggable="true">${item}</li>`;
                         });
@@ -69,7 +72,6 @@ export function grammarPracticeProgress() {
                         });
                         break;
                 }
-                template += '<li id="end"></li>';
                 return template;
             },
             reviewData() {
@@ -86,61 +88,50 @@ export function grammarPracticeProgress() {
                 errorMassage.innerHTML = "";
             },
             validate() {
+                debugger;
                 if (originalContent === newContent.join(" ")) {
-                    toastr("success", "Good Jobs...")
+                    toastr("success", "Good Jobs...asdsadasdsad qwe qwe asd asd as das");
                     score++;
                     this.load(typeLoad.new);
+                } else {
+                    toastr("error", "Wrong!");
                 }
-                else{
-                    toastr("error", "Wrong!")
-                }
-            },
-            add(position) {
-                newContent.splice(position, 0);
-            },
-            remove(position) {
-                newContent.splice(position, 1);
             },
             handleEvent() {
                 const checkClone = function () {
-                    let cloneElem = document.querySelector(
-                        "#grammar #cloneItem"
-                    );
+                    let cloneElem = $("#grammar .cloneItem");
                     draging = cloneElem == null ? false : true;
                 };
 
                 $$("#grammar ul li").forEach((item) => {
                     // Dragstart event
                     item.addEventListener("dragstart", (e) => {
-                        if (item.id !== "start" || item.id !== "end") {
-                            dragItem = item;
-                            item.classList.add("draging");
-                        }
+                        dragItem = item;
+                        item.classList.add("draging");
                     });
                     // Dragover event
                     item.addEventListener("dragover", (e) => {
                         checkClone();
                         if (draging === false && dragItem.id != item.id) {
-                            if (item.id == "start" || item.id == "end") {
-                                item.classList.add("dragtemp");
-                                item.id = "cloneItem";
-                            } else {
+                            if (dragItem.id < e.target.id) {
                                 item.insertAdjacentHTML("afterend", cloneItem);
+                            } else {
+                                item.insertAdjacentHTML(
+                                    "beforebegin",
+                                    cloneItem
+                                );
                             }
+                            $("#grammar .cloneItem").id = e.target.id;
                         }
                     });
                     // Dragover event for outside
                     $$("#grammar .space").forEach((item) => {
                         item.addEventListener("dragover", () => {
-                            let cloneElems = document.querySelectorAll(
-                                "#grammar #cloneItem"
-                            );
+                            let cloneElems = $$("#grammar .cloneItem");
                             if (cloneElems !== null) {
-                                cloneElems.forEach((cloneElem)=>{
-                                    if(cloneElem.id !== 'start' || cloneElem !== 'end')
-                                        cloneElem.remove();
-
-                                })
+                                cloneElems.forEach((cloneElem) => {
+                                    cloneElem.remove();
+                                });
                             }
                         });
                     });
@@ -151,52 +142,29 @@ export function grammarPracticeProgress() {
                         }
                     });
                     // Drop event
-                    item.addEventListener("dragend", () => {
-                        let cloneElem = document.querySelector(
-                            "#grammar #cloneItem"
-                        );
-                        const items = $$("#grammar ul li");
-                        if (cloneElem !== null) {
-                            items.forEach((item, index) => {
-                                if (item.id == "cloneItem") {
-                                    if(index == 0){
-                                        newContent.splice(
-                                            Number(index),
-                                            0,
-                                            dragItem.innerHTML
-                                        );
-                                    } else {
-                                        newContent.splice(
-                                            index - 1,
-                                            0,
-                                            dragItem.innerHTML
-                                        );
-                                    }
-
-                                    if (dragItem.id >= index)
-                                        newContent.splice(Number(dragItem.id) + 1, 1);
-                                    else 
-                                        newContent.splice(Number(dragItem.id), 1);
-                                }
-                            });
-                            this.load(typeLoad.update);
-                        } else {
-                            items.forEach((item)=>{
-                                if(item.id === dragItem.id){
-                                    item.classList.remove("draging");
-                                }
-                            })
-                        }
+                    item.addEventListener("dragend", (e) => {
+                        const cloneElem = $("#grammar .cloneItem");
+                        if(cloneElem != null)
+                            if(Number(dragItem.id) < Number(cloneElem.id)){
+                                console.dir(dragItem)
+                                newContent.splice(Number(cloneElem.id) + 1, 0, dragItem.textContent);
+                                newContent.splice(Number(dragItem.id), 1);
+                            } else if(Number(dragItem.id) > Number(cloneElem.id)) {
+                                newContent.splice(Number(cloneElem.id), 0, dragItem.textContent);
+                                newContent.splice(Number(dragItem.id) + 1, 1);
+                            }
+                        this.load(typeLoad.update);
                     });
                 });
             },
             reset() {
-                this.resetScore();
                 this.resetMessage();
                 this.load(typeLoad.reset);
             },
             change() {
                 this.load(typeLoad.new);
+                score--;
+                this.resetScore();
             },
             submit() {
                 this.validate();

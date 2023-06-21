@@ -211,7 +211,7 @@ a {
     transition: 0.5s ease-in;
 }
 .menu-sidebar:hover {
-    width: 18%;
+    width: 250px;
     transition: 0.5s ease-in;
 }
 .menu-sidebar .wrapper {
@@ -288,7 +288,8 @@ a {
 
 /* #region Letter Practice */
 .box {
-    width: 320px;
+    width: 400px;
+    border-radius: 4px;
     box-shadow: 3px 3px 2px #000;
     background: #ffffff;
     padding: 12px;
@@ -311,8 +312,13 @@ a {
     margin: auto;
     padding: 2px 8px;
     color: #575757;
-    border: 1px solid #575757;
+    border: 1px solid #acacac;
     border-radius: 4px;
+    transition: .5s;
+}
+.box .japanese-code button:hover {
+    background: #fbfbfb;
+    border: 1px solid #7b7b7b;
 }
 .box .japanese-code label {
     display: block;
@@ -372,8 +378,9 @@ a {
 /* #region Language Board */
 .language-board {
     position: fixed;
-    bottom: 0;
-    left: 98%;
+    top: 0;
+    right: 0;
+    transform: translateX(calc(100% - 20px));
     padding-left: 40px;
     background: #cfe2ff;
     width: 35vw;
@@ -382,10 +389,14 @@ a {
     z-index: 100;
 }
 .language-board:hover {
-    left: calc(98% - 430px);
+    transform: translateX(0);
 }
 .language-board .title {
-    padding: 20px 4px;
+    height: 80px;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
     background: #afc3fa;
     border: 2px solid #4878fb;
     text-align: center;
@@ -395,7 +406,7 @@ a {
     padding: 4px;
     background: #faffe8;
     border: 2px solid #eeffab;
-    height: 650px;
+    height: calc(100vh - 90px);
     overflow-y: scroll;
 }
 .language-board .content ul {
@@ -570,16 +581,6 @@ Grammar Practice Page
     height: 5px;
     border-radius: 4px 4px 0 0;
     background: var(--bs-secondary);
-}
-.page-content .wrapper #grammar ul > li:first-child{
-    cursor: default!important;
-    opacity: 0;
-    animation: none;
-}
-.page-content .wrapper #grammar ul > li:last-child {
-    cursor: default!important;
-    opacity: 0;
-    animation: none;
 }
 .page-content .wrapper #grammar ul li.dragtemp {
     position: relative;
