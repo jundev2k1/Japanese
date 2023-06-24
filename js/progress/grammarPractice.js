@@ -23,6 +23,7 @@ export function grammarPracticeProgress() {
         const cloneItem = '<li class="dragtemp cloneItem">Clone</li>';
 
         return {
+            // Load to screen
             load(type) {
                 switch (type) {
                     case typeLoad.new:
@@ -41,6 +42,7 @@ export function grammarPracticeProgress() {
                 this.reviewData();
                 this.handleEvent();
             },
+            // Handle random sentence
             randomSentence() {
                 // Get random number
                 let num = Math.floor(Math.random() * content.length);
@@ -49,12 +51,14 @@ export function grammarPracticeProgress() {
                 oldContent = [...content[num].element];
                 this.randomContent();
             },
+            // Handle random content
             randomContent() {
                 oldContent.sort((a, b) => 0.5 - Math.random());
                 if (oldContent.join(" ") === originalContent) {
                     this.randomContent();
                 }
             },
+            // Create data
             createData(type) {
                 let template = "";
                 switch (type) {
@@ -74,29 +78,35 @@ export function grammarPracticeProgress() {
                 }
                 return template;
             },
+            // Update review anwser
             reviewData() {
                 review.innerHTML = oldContent.join(" ");
             },
+            // Load score to screen
             loadScore() {
                 scoreElem.innerHTML = score;
             },
+            // Reset score
             resetScore() {
                 score = 0;
                 this.loadScore();
             },
+            // Reset the message
             resetMessage() {
                 errorMassage.innerHTML = "";
             },
+            // Check the anwser is right or wrong
             validate() {
                 debugger;
                 if (originalContent === newContent.join(" ")) {
-                    toastr("success", "Good Jobs...asdsadasdsad qwe qwe asd asd as das");
+                    toastr("success", "Good Jobs...");
                     score++;
                     this.load(typeLoad.new);
                 } else {
                     toastr("error", "Wrong!");
                 }
             },
+            // Create handle event
             handleEvent() {
                 const checkClone = function () {
                     let cloneElem = $("#grammar .cloneItem");
@@ -146,7 +156,6 @@ export function grammarPracticeProgress() {
                         const cloneElem = $("#grammar .cloneItem");
                         if(cloneElem != null)
                             if(Number(dragItem.id) < Number(cloneElem.id)){
-                                console.dir(dragItem)
                                 newContent.splice(Number(cloneElem.id) + 1, 0, dragItem.textContent);
                                 newContent.splice(Number(dragItem.id), 1);
                             } else if(Number(dragItem.id) > Number(cloneElem.id)) {
@@ -157,18 +166,23 @@ export function grammarPracticeProgress() {
                     });
                 });
             },
+            // Restore the original
             reset() {
                 this.resetMessage();
                 this.load(typeLoad.reset);
+                toastr("warning", "Restore complete");
             },
+            // Change the question
             change() {
                 this.load(typeLoad.new);
                 score--;
                 this.resetScore();
             },
+            // Submit
             submit() {
                 this.validate();
             },
+            // Constructor
             init() {
                 $("#grammar .confirm").addEventListener("click", () =>
                     this.submit()

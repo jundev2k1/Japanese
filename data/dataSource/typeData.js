@@ -1,5 +1,6 @@
 export const Topic = {
     intro: 'intro',
     life: 'life',
-    school: 'school'
+    school: 'school',
+    job: 'job'
 }
