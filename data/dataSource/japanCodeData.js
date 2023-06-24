@@ -265,7 +265,7 @@ export const Character = [
     },
     {
         index: 45,
-        hiragana: 'ゐ',
+        hiragana: 'を',
         katakana: 'ヲ',
         romaji: 'wo'
     },
