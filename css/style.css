@@ -334,6 +334,9 @@ tr td {
     margin: 4px 0;
     color: #434343;
 }
+.box #input-field {
+    text-align: center;
+}
 /* #endregion */
 
 /* #region Setting Page */
@@ -538,11 +541,13 @@ Grammar Practice Page
 }
 .page-content .wrapper #grammar .alert > h4 {
     font-weight: bold;
+    text-transform: uppercase;
 }
 .page-content .wrapper #grammar .alert > p {
     font-size: 32px;
     font-weight: 500;
     margin-bottom: 0;
+    word-spacing: 8px;
 }
 .page-content .wrapper #grammar .alert .error-message {
     color: var(--bs-danger);
