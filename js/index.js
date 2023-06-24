@@ -95,7 +95,7 @@ PageLoad();
 
     // Handle hover
     pageSidebar.addEventListener("mouseover", (e) => {
-        pageContent.style.paddingLeft = "18%";
+        pageContent.style.paddingLeft = "250px";
         pageContent.style.animation = "MenuHover 0.5s ease-in";
     });
     pageSidebar.addEventListener("mouseleave", () => {
